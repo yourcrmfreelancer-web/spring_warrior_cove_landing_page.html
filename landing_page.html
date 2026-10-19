@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spring Warrior Cove - A Lazy Tortoise Ranch Community</title>
+    <style>
+        :root {
+            --primary-color: #5d4037; /* Warm dark brown */
+            --secondary-color: #2e7d32; /* Rich nature green */
+            --accent-color: #b08968; /* Light warm gold/sand */
+            --bg-cream: #fbf8f3; /* Premium clean off-white background */
+            --dark-text: #2c2520; /* Deep charcoal brown for reading */
+            --gold-btn: #8d6e63; /* Button default earthy tone */
+            --gold-btn-hover: #6d4c41;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: var(--bg-cream);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Navigation Bar */
+        header {
+            background-color: #1a1512;
+            color: #fff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #fff;
+        }
+
+        header .cta-nav-btn {
+            background-color: #d4af37;
+            color: #1a1512;
+            padding: 8px 16px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 2px;
+            transition: background-color 0.3s;
+        }
+
+        header .cta-nav-btn:hover {
+            background-color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 21, 18, 0.4), rgba(26, 21, 18, 0.7)), url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 8px solid var(--secondary-color);
+        }
+
+        .logo-placeholder {
+            max-width: 280px;
+            margin: 0 auto 30px auto;
+            background: rgba(26, 21, 18, 0.85);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+        }
+
+        .logo-placeholder h1 {
+            font-size: 2rem;
+            color: #fff;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .logo-placeholder p {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: normal;
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.2;
+        }
+
+        .hero .sub-headline {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #f0e6df;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: #795548;
+            color: white;
+            padding: 18px 36px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+            border: 1px solid #8d6e63;
+        }
+
+        .hero-btn:hover {
+            background-color: #5d4037;
+        }
+
+        .hero-footprint {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #ddd;
+            letter-spacing: 1px;
+        }
+
+        /* Founder Letter Section */
+        .founder-section {
+            padding: 80px 0;
+            background-color: #f7f2ea;
+        }
+
+        .section-tagline {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .founder-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #3e352f;
+        }
+
+        .letter-sign {
+            margin-top: 40px;
+            font-family: 'Brush Script MT', cursive, serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .visual-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .showcase-item {
+            background: white;
+            border: 1px solid #e1d7c7;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .showcase-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .showcase-caption {
+            padding: 15px;
+            text-align: center;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            background-color: #fff;
+            color: var(--primary-color);
+            border-top: 1px solid #e1d7c7;
+        }
+
+        /* Pillars Icons Row */
+        .pillars-row {
+            background-color: #eaddca;
+            padding: 40px 0;
+            border-top: 1px solid #d4c4b0;
+            border-bottom: 1px solid #d4c4b0;
+        }
+
+        .pillars-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .pillar-box {
+            flex: 1;
+            min-width: 140px;
+            padding: 10px;
+        }
+
+        .pillar-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .pillar-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+        }
+
+        /* Split Section: Core Question & Form */
+        .split-section {
+            padding: 80px 0;
+            background-color: var(--bg-cream);
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .question-box {
+            background-color: #1a1512;
+            color: white;
+            padding: 50px 40px;
+            border-radius: 4px;
+            text-align: center;
+            border: 2px dashed #b08968;
+            outline: 10px solid #1a1512;
+            margin: 10px;
+        }
+
+        .question-box .intro {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .question-box h3 {
+            font-size: 2.4rem;
+            font-weight: normal;
+            color: #fff;
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+
+        .question-box .foot {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            border-top: 1px solid #3a3029;
+            padding-top: 20px;
+        }
+
+        /* Lead Form styling */
+        .form-box {
+            background: white;
+            padding: 40px;
+            border-radius: 6px;
+            border: 1px solid #e1d7c7;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+            background-color: #fafafa;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background-color: #fff;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            background-color: #5d4037;
+            color: white;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-submit-btn:hover {
+            background-color: #3e2723;
+        }
+
+        .form-privacy {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1512;
+            color: #888;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div style="font-weight: bold; color: #fff; letter-spacing: 1px;">SPRING WARRIOR COVE</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#vision">The Vision</a>
+                <a href="#land">The Land</a>
+                <a href="#lifestyle">The Lifestyle</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <a href="#invitation" class="cta-nav-btn">Apply Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="logo-placeholder">
+                <h1>SPRING WARRIOR</h1>
+                <p>Cove</p>
+            </div>
+            <h2>I have 25 to 30 years left to live.<br>I'm spending them right here.<br>Who is coming with me?</h2>
+            <p class="sub-headline">Building a private, RV-friendly coastal community of just 66 families who love raw nature, links golf, and old-school neighborly tolerance.</p>
+            <a href="#invitation" class="hero-btn">Read The Playbook & Apply to The 66 &rarr;</a>
+            <div class="hero-footprint">&#128101; Only 66 families.</div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder-section" id="vision">
+        <div class="container">
+            <div class="section-tagline">The Unfiltered Truth</div>
+            <h2 class="section-title">A Letter From The Founder</h2>
+            
+            <div class="founder-grid">
+                <div class="letter-content">
+                    <p><strong>Friend,</strong></p>
+                    <p>I'm a preacher's kid and an environmental consultant who sees the universe as an amazing freak show. For the last five years I've been restoring this 340-acre wildlife refuge because I believe life is better when nature, freedom, and common sense still have a place to breathe.</p>
+                    <p>Here are the hard facts: about 46 developed acres, a mix of 1/2-acre to 5-acre lots, and roads and underground utilities breaking ground right now. Build a front-porch home, an RV port home, or a high-end RV base camp—then spend your time fishing, kayaking, hiking, golfing, biking, boating, and living outside.</p>
+                    <p>And here's the culture filter: if you can't laugh at why Americans vote Republican or Democrat over a backyard barbecue, look somewhere else. We're building a place for neighborly tolerance, outdoor living, and people who still know how to disagree without becoming enemies.</p>
+                    <div class="letter-sign">See you at the Cove,<br>The Founder</div>
+                </div>
+
+                <div class="visual-showcase">
+                    <div class="showcase-item">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80" alt="RV & Luxury Home" class="showcase-img">
+                        <div class="showcase-caption">RV-Friendly Homes & Luxury Outdoor Living</div>
+                    </div>
+                    <div class="showcase-item">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=500&q=80" alt="Kayaking & Exploring" class="showcase-img">
+                        <div class="showcase-caption">Fishing, Kayaking, Boating & Exploring</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars Row -->
+    <section class="pillars-row" id="lifestyle">
+        <div class="container pillars-container">
+            <div class="pillar-box">
+                <div class="pillar-icon">&#127794;</div>
+                <div class="pillar-title">Raw Nature</div>
+            </div>
+            <div class="pillar-box">
+                <div class="pillar-icon">&#130755;</div>
+                <div class="pillar-title">Links Golf</div>
+            </div>
+            <div class="pillar-box">
+                <div class="pillar-icon">&#128652;</div>
+                <div class="pillar-title">RV-Friendly Living</div>
+            </div>
+            <div class="pillar-box">
+                <div class="pillar-icon">&#129309;</div>
+                <div class="pillar-title">Neighborly Tolerance</div>
+            </div>
+            <div class="pillar-box">
+                <div class="pillar-icon">&#127969;</div>
+                <div class="pillar-title">A Simpler, Richer Life</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Question & Form Split Section -->
+    <section class="split-section" id="invitation">
+        <div class="container split-grid">
+            <div class="question-box">
+                <div class="intro">The question here isn't whether you have the money to buy a piece of dirt.</div>
+                <h3>The real question is:<br><strong>Do I fit in the 66?</strong></h3>
+                <div class="foot">Good People &bull; Wild Places<br>Real Conversations &bull; A Brighter Tomorrow</div>
+            </div>
+
+            <div class="form-box">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">First & Last Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number (For text updates)</label>
+                        <input type="text" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell me why you love the outdoors or what you plan to park/build at the Cove.</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Share a little about yourself..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit-btn">Claim My Invitation for Iced Tea & a Tour &rarr;</button>
+                    <div class="form-privacy">&#128274; No spam. Just real information for people who may belong here.</div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Spring Warrior Cove. All Rights Reserved.</p>
+            <p>A Lazy Tortoise Ranch Community.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
